@@ -1,0 +1,10 @@
+# Exercise 1 from Module 1
+mkdir -p foo/{dummy,empty}
+echo 'Me encanta la bash!!' > foo/dummy/file1.txt
+touch foo/dummy/file2.txt
+find .
+
+# Exercise 2 from Module 1
+cat foo/dummy/file1.txt > foo/dummy/file2.txt
+mv foo/dummy/file2.txt foo/empty/
+find .
