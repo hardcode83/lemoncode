@@ -21,11 +21,6 @@ TESTAPI="http://localhost:8080"
 echo
 echo Ejercicio 1 - Modulo Contenedores - Lemoncode
 echo
-echo Levantando DB LAYER $MONGODB en puerto $PORT_DB en red $NETWORK
-echo Levantando BACKEND LAYER $BACKEND en puerto $PORT_BACKEND en red $NETWORK
-echo Levantando FRONTEND LAYER $FRONTEND en puertos $PORT_FRONTEND_OUT:$PORT_FRONTEND_IN en red $NETWORK
-echo
-
 
 # NETWORK LAYER
 echo
