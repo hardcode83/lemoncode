@@ -1,0 +1,4 @@
+{"_id":{"$oid":"6262748809d81578d4349f63"},"Name":"Contenedores"}
+{"_id":{"$oid":"626274dd09d81578d4349f64"},"Name":"Kubernetes"}
+{"_id":{"$oid":"6262752f09d81578d4349f65"},"Name":"AWS"}
+{"_id":{"$oid":"6262754509d81578d4349f66"},"Name":"Azure"}
