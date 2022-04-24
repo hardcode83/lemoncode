@@ -1,4 +1,4 @@
-# Exercise 1 from Module 1
+# !Exercise 1 from Module 1
 mkdir -p foo/{dummy,empty}
 echo 'Me encanta la bash!!' > foo/dummy/file1.txt
 touch foo/dummy/file2.txt
