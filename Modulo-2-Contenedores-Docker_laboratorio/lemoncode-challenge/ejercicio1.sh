@@ -34,7 +34,7 @@ docker network create $NETWORK
 echo
 echo Levantando DB LAYER $MONGODB en puerto $PORT_DB en red $NETWORK...
 echo
-docker run -d --name $MONGODB --network $NETWORK --mount source=$DBDATA,target=/data/db -e MONGO_INITDB_ROOT_USERNAME=$MONGOUSER -e MONGO_INITDB_ROOT_PASSWORD=$MONGOPASSWD mongo 
+docker run -d --name $MONGODB --network $NETWORK -p 27017:27017 --mount source=$DBDATA,target=/data/db -e MONGO_INITDB_ROOT_USERNAME=$MONGOUSER -e MONGO_INITDB_ROOT_PASSWORD=$MONGOPASSWD mongo 
 
 # POPULATE MONGODB
 ## mongoexport --db TopicstoreDb --collection Topics --out=/tmp/backupdb.json
