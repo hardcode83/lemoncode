@@ -1,8 +1,8 @@
-# README Laboratorio Modulo 2 Contenedores LEMONCODE
+# README Laboratorio Módulo 2 Contenedores LEMONCODE
 ## Consideraciones:
-1.- Puesto que se genera una red "lemoncode-challenge" para hospedar los microservicios, de manera explicita no se ha expuesto los puertos ni de la base de datos ni del backend, para que solo sea visibles por el frontend en el que evidentemente es el único que se ha expuesto hacia fuera.
+1.- Puesto que se genera una red "lemoncode-challenge" para hospedar los microservicios, de manera explícita no se ha expuesto los puertos ni de la base de datos ni del backend, para que solo sea visibles por el frontend en el que evidentemente es el único que se ha expuesto hacia fuera.
 
-2.- Por la misma razón, al no estar expuestos los servicios en esta red privada, he tenido que modificar los endpoints en código para que apunten a los nombres dns generados por docker 
+2.- Por la misma razón, al no estar expuestos los servicios en esta red privada, he tenido que modificar los endpoints en código para que apunten a los nombres dns generados por docker que serán visibles dentro de la red. 
     - cambio: 'http://localhost:5000/api/topics' --> 'http://topics-api:5000/api/topics' (frontend/server.js)
     - cambio: "mongodb://localhost:27017" --> "mongodb://admin:lemoncode@some-mongo:27017" (backend/appsettings.json)
 
@@ -16,10 +16,10 @@
 
 ## Cómo desplegar
 ### EJERCICIO 1
-Estando situados dentro de la carpeta de Modulo-2, simplemente dar permisos de ejecucion a ejercicio1.sh y ejecutarlo, está preparado para desplegarlo todo por nosotros.
+Estando situados dentro de la carpeta de Módulo-2, simplemente dar permisos de ejecucion a ejercicio1.sh y ejecutarlo, está preparado para desplegarlo todo por nosotros.
 
 ### EJERCICIO 2
-Estando situados dentro de la carpeta de Modulo-2:
+Estando situados dentro de la carpeta de Módulo-2:
     - Desplegar: docker-compose up
     - Parar: docker-compose stop
     - Parar y eliminar: docker compose down
