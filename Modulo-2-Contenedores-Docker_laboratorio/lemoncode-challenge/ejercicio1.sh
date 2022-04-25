@@ -44,7 +44,7 @@ echo
 echo Populando DB $MONGODB con DB TopicstoreDb Coleccion Topics...
 echo
 docker cp auxfiles/$BACKUPDBFILE $MONGODB:/tmp/
-docker exec $MONGODB mongorestore -u $MONGOUSER -p $MONGOPASSWD --db TopicstoreDb /tmp/$BACKUPDBFILE
+docker exec $MONGODB mongorestore --authenticationMechanism MONGODB-X509 -u $MONGOUSER -p $MONGOPASSWD --db TopicstoreDb /tmp/$BACKUPDBFILE
 
 # BACKEND LAYER DONT EXPOSE PRIVATE NETWORK!
 echo
