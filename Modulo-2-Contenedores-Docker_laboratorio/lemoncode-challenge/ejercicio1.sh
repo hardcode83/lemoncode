@@ -34,7 +34,7 @@ docker network create $NETWORK
 echo
 echo Levantando DB LAYER $MONGODB en puerto $PORT_DB en red $NETWORK...
 echo
-docker run -d --name $MONGODB --network $NETWORK -p 27017:27017 --mount source=$DBDATA,target=/data/db -e MONGO_INITDB_ROOT_USERNAME=$MONGOUSER -e MONGO_INITDB_ROOT_PASSWORD=$MONGOPASSWD mongo 
+docker run -d --name $MONGODB --network $NETWORK --mount source=$DBDATA,target=/data/db -e MONGO_INITDB_ROOT_USERNAME=$MONGOUSER -e MONGO_INITDB_ROOT_PASSWORD=$MONGOPASSWD mongo 
 
 # POPULATE MONGODB
 ## mongoexport --db TopicstoreDb --collection Topics --out=/tmp/backupdb.json
@@ -44,7 +44,7 @@ echo
 echo Populando DB $MONGODB con DB TopicstoreDb Coleccion Topics...
 echo
 docker cp auxfiles/$BACKUPDBFILE $MONGODB:/tmp/
-docker exec $MONGODB mongorestore --authenticationMechanism MONGODB-X509 -u $MONGOUSER -p $MONGOPASSWD --db TopicstoreDb /tmp/$BACKUPDBFILE
+docker exec $MONGODB mongorestore --authenticationDatabase admin --username $MONGOUSER --password $MONGOPASSWD --db TopicstoreDb /tmp/$BACKUPDBFILE
 
 # BACKEND LAYER DONT EXPOSE PRIVATE NETWORK!
 echo
