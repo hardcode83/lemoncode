@@ -8,7 +8,7 @@ NETWORK="lemoncode-challenge"
 MONGODB="some-mongo"
 PORT_DB="27017" ## FOR TEST ONLY, DONT EXPOSE IN PRODUCTION
 DBDATA="DBDATA"
-BACKUPDBFILE="auxfiles/Topics.bson"
+BACKUPDBFILE="Topics.bson"
 PATH_CONTEXT_BACKEND="backend/"
 BACKEND="topics-api"
 PORT_BACKEND="5000" ## FOR TEST ONLY, DONT EXPOSE IN PRODUCTION
@@ -41,7 +41,7 @@ docker run -d --name $MONGODB --network $NETWORK --mount source=$DBDATA,target=/
 echo 
 echo Populando DB $MONGODB con DB TopicstoreDb Coleccion Topics...
 echo
-docker cp $BACKUPDBFILE $MONGODB:/tmp/
+docker cp auxfiles/$BACKUPDBFILE $MONGODB:/tmp/
 docker exec $MONGODB mongorestore --db TopicstoreDb /tmp/$BACKUPDBFILE
 
 # BACKEND LAYER DONT EXPOSE PRIVATE NETWORK!
@@ -65,7 +65,9 @@ cd ..
 echo 
 echo Realizando test...
 echo
+
 sleep 5 ### WITH THIS DELAY IM SURE SERVICE IS UP
+
 HTTP_CODE=$(curl --write-out %{http_code} --silent --output /dev/null "$TESTAPI")
 if [[ "$HTTP_CODE" -ne 200 ]] ; then
  echo "Fallo de conexion con la API"
